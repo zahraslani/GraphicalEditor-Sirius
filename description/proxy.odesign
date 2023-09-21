@@ -1,0 +1,256 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<description:Group xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:description="http://www.eclipse.org/sirius/description/1.1.0" xmlns:description_1="http://www.eclipse.org/sirius/diagram/description/1.1.0" xmlns:style="http://www.eclipse.org/sirius/diagram/description/style/1.1.0" xmlns:tool="http://www.eclipse.org/sirius/diagram/description/tool/1.1.0" xmlns:tool_1="http://www.eclipse.org/sirius/description/tool/1.1.0" name="proxy" version="12.0.0.2017041100">
+  <ownedViewpoints name="Proxy">
+    <ownedRepresentations xsi:type="description_1:DiagramDescription" name="Proxy_Diagram" domainClass="proxy::System" enablePopupBars="true">
+      <metamodel href="http://www.mdse.org/proxy#/"/>
+      <defaultLayer name="Default">
+        <edgeMappings name="publish" sourceMapping="//@ownedViewpoints[name='Proxy']/@ownedRepresentations[name='Proxy_Diagram']/@defaultLayer/@containerMappings[name='Gateway']/@subContainerMappings[name='ProxyResource']/@subNodeMappings[name='ProxyWriteEndpoint']" targetMapping="//@ownedViewpoints[name='Proxy']/@ownedRepresentations[name='Proxy_Diagram']/@defaultLayer/@containerMappings[name='Mqtt']/@subNodeMappings[name='MqttMessage']" targetFinderExpression="feature:publish">
+          <style lineStyle="dash_dot" sizeComputationExpression="2">
+            <strokeColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='dark_green']"/>
+            <centerLabelStyleDescription labelSize="12">
+              <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            </centerLabelStyleDescription>
+          </style>
+        </edgeMappings>
+        <edgeMappings name="write" sourceMapping="//@ownedViewpoints[name='Proxy']/@ownedRepresentations[name='Proxy_Diagram']/@defaultLayer/@containerMappings[name='Mqtt']/@subNodeMappings[name='MqttMessage']" targetMapping="//@ownedViewpoints[name='Proxy']/@ownedRepresentations[name='Proxy_Diagram']/@defaultLayer/@containerMappings[name='Coap']/@subContainerMappings[name='CoapResource']/@subNodeMappings[name='CoapWriteEndpoint']" targetFinderExpression="feature:write">
+          <style lineStyle="dot" sizeComputationExpression="2">
+            <strokeColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='purple']"/>
+            <centerLabelStyleDescription labelSize="12">
+              <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            </centerLabelStyleDescription>
+          </style>
+        </edgeMappings>
+        <edgeMappings name="proxyWrite" sourceMapping="//@ownedViewpoints[name='Proxy']/@ownedRepresentations[name='Proxy_Diagram']/@defaultLayer/@containerMappings[name='Gateway']/@subContainerMappings[name='ProxyResource']/@subNodeMappings[name='ProxyWriteEndpoint']" targetMapping="//@ownedViewpoints[name='Proxy']/@ownedRepresentations[name='Proxy_Diagram']/@defaultLayer/@containerMappings[name='Coap']/@subContainerMappings[name='CoapResource']/@subNodeMappings[name='CoapWriteEndpoint']" targetFinderExpression="feature:proxyWrite">
+          <style lineStyle="dash" sizeComputationExpression="2">
+            <strokeColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='green']"/>
+            <centerLabelStyleDescription labelSize="12">
+              <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            </centerLabelStyleDescription>
+          </style>
+        </edgeMappings>
+        <edgeMappings name="proxyRead" sourceMapping="//@ownedViewpoints[name='Proxy']/@ownedRepresentations[name='Proxy_Diagram']/@defaultLayer/@containerMappings[name='Gateway']/@subContainerMappings[name='ProxyResource']/@subNodeMappings[name='ProxyReadEndpoint']" targetMapping="//@ownedViewpoints[name='Proxy']/@ownedRepresentations[name='Proxy_Diagram']/@defaultLayer/@containerMappings[name='Coap']/@subContainerMappings[name='CoapResource']/@subNodeMappings[name='CoapReadEndpoint']" targetFinderExpression="feature:proxyRead">
+          <style sizeComputationExpression="2">
+            <strokeColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='gray']"/>
+            <centerLabelStyleDescription labelSize="12">
+              <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            </centerLabelStyleDescription>
+          </style>
+        </edgeMappings>
+        <containerMappings name="Gateway" domainClass="proxy::Gateway">
+          <subContainerMappings name="ProxyResource" semanticCandidatesExpression="feature:eAllContents" domainClass="proxy::ProxyResource">
+            <subNodeMappings name="ProxyReadEndpoint" semanticCandidatesExpression="feature:eAllContents" domainClass="proxy::ProxyReadEndpoint">
+              <style xsi:type="style:SquareDescription" labelSize="10" labelExpression="" iconPath="/org.eclipse.sirius.sample.proxy.design/icons/Read Proxy.png" labelPosition="node" resizeKind="NSEW">
+                <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+                <labelFormat>bold</labelFormat>
+                <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+                <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
+              </style>
+            </subNodeMappings>
+            <subNodeMappings name="ProxyWriteEndpoint" semanticCandidatesExpression="feature:eAllContents" domainClass="proxy::ProxyWriteEndpoint">
+              <conditionnalStyles predicateExpression="aql:self.method=proxy::CoapWriteMethod::POST">
+                <style xsi:type="style:SquareDescription" labelSize="10" labelExpression="" iconPath="/org.eclipse.sirius.sample.proxy.design/icons/Write Proxy.png" labelPosition="node" resizeKind="NSEW">
+                  <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+                  <labelFormat>bold</labelFormat>
+                  <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+                  <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
+                </style>
+              </conditionnalStyles>
+              <conditionnalStyles predicateExpression="aql:self.method=proxy::CoapWriteMethod::PUT">
+                <style xsi:type="style:SquareDescription" labelSize="10" labelExpression="" iconPath="/org.eclipse.sirius.sample.proxy.design/icons/Write Proxy.png" labelPosition="node" resizeKind="NSEW">
+                  <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+                  <labelFormat>bold</labelFormat>
+                  <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+                  <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
+                </style>
+              </conditionnalStyles>
+              <conditionnalStyles predicateExpression="aql:self.method=proxy::CoapWriteMethod::PATCH">
+                <style xsi:type="style:SquareDescription" labelSize="10" labelExpression="" iconPath="/org.eclipse.sirius.sample.proxy.design/icons/Write Proxy.png" labelPosition="node" resizeKind="NSEW">
+                  <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+                  <labelFormat>bold</labelFormat>
+                  <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+                  <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
+                </style>
+              </conditionnalStyles>
+            </subNodeMappings>
+            <style xsi:type="style:FlatContainerStyleDescription" borderSizeComputationExpression="1" labelSize="11" labelExpression="aql:self.name" iconPath="/org.eclipse.sirius.sample.proxy.design/icons/Proxy Resource.png">
+              <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+              <labelFormat>bold</labelFormat>
+              <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+              <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
+              <foregroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
+            </style>
+          </subContainerMappings>
+          <style xsi:type="style:FlatContainerStyleDescription" borderSizeComputationExpression="1" labelSize="12" labelExpression="" iconPath="/org.eclipse.sirius.sample.proxy.design/icons/Gateway.png">
+            <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            <labelFormat>bold</labelFormat>
+            <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
+            <foregroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
+          </style>
+        </containerMappings>
+        <containerMappings name="Coap" domainClass="proxy::Coap">
+          <subContainerMappings name="CoapResource" semanticCandidatesExpression="feature:eAllContents" domainClass="proxy::CoapResource">
+            <subNodeMappings name="CoapReadEndpoint" semanticCandidatesExpression="feature:eAllContents" domainClass="proxy::CoapReadEndpoint">
+              <style xsi:type="style:SquareDescription" labelSize="10" labelExpression="" iconPath="/org.eclipse.sirius.sample.proxy.design/icons/Read Coap.png" labelPosition="node" resizeKind="NSEW">
+                <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+                <labelFormat>bold</labelFormat>
+                <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+                <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
+              </style>
+            </subNodeMappings>
+            <subNodeMappings name="CoapWriteEndpoint" semanticCandidatesExpression="feature:eAllContents" domainClass="proxy::CoapWriteEndpoint">
+              <conditionnalStyles predicateExpression="aql:self.method=proxy::CoapWriteMethod::POST">
+                <style xsi:type="style:SquareDescription" labelSize="10" labelExpression="" iconPath="/org.eclipse.sirius.sample.proxy.design/icons/Write Coap.png" labelPosition="node" resizeKind="NSEW">
+                  <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+                  <labelFormat>bold</labelFormat>
+                  <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+                  <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
+                </style>
+              </conditionnalStyles>
+              <conditionnalStyles predicateExpression="aql:self.method=proxy::CoapWriteMethod::POST">
+                <style xsi:type="style:SquareDescription" labelSize="10" labelExpression="" iconPath="/org.eclipse.sirius.sample.proxy.design/icons/Write Coap.png" labelPosition="node" resizeKind="NSEW">
+                  <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+                  <labelFormat>bold</labelFormat>
+                  <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+                  <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
+                </style>
+              </conditionnalStyles>
+              <conditionnalStyles predicateExpression="aql:self.method=proxy::CoapWriteMethod::POST">
+                <style xsi:type="style:SquareDescription" labelSize="10" labelExpression="" iconPath="/org.eclipse.sirius.sample.proxy.design/icons/Write Coap.png" labelPosition="node" resizeKind="NSEW">
+                  <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+                  <labelFormat>bold</labelFormat>
+                  <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+                  <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
+                </style>
+              </conditionnalStyles>
+            </subNodeMappings>
+            <style xsi:type="style:FlatContainerStyleDescription" borderSizeComputationExpression="1" labelSize="11" labelExpression="aql:self.name" iconPath="/org.eclipse.sirius.sample.proxy.design/icons/Coap Resource.png">
+              <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+              <labelFormat>bold</labelFormat>
+              <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+              <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
+              <foregroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
+            </style>
+          </subContainerMappings>
+          <style xsi:type="style:FlatContainerStyleDescription" borderSizeComputationExpression="1" labelSize="12" labelExpression="" iconPath="/org.eclipse.sirius.sample.proxy.design/icons/Coap.png">
+            <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            <labelFormat>bold</labelFormat>
+            <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
+            <foregroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
+          </style>
+        </containerMappings>
+        <containerMappings name="Mqtt" domainClass="proxy::Mqtt">
+          <subNodeMappings name="MqttMessage" semanticCandidatesExpression="feature:eAllContents" domainClass="proxy::MqttMessage">
+            <style xsi:type="style:SquareDescription" labelSize="11" labelExpression="aql:self.topic" iconPath="/org.eclipse.sirius.sample.proxy.design/icons/Message.png" labelPosition="node" resizeKind="NSEW">
+              <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+              <labelFormat>bold</labelFormat>
+              <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+              <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
+            </style>
+          </subNodeMappings>
+          <style xsi:type="style:FlatContainerStyleDescription" borderSizeComputationExpression="1" labelSize="12" labelExpression="" iconPath="/org.eclipse.sirius.sample.proxy.design/icons/Mosquitto.png">
+            <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            <labelFormat>bold</labelFormat>
+            <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
+            <foregroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
+          </style>
+        </containerMappings>
+        <toolSections name="ProxyPalette">
+          <ownedTools xsi:type="tool:ContainerCreationDescription" name="Gateway" containerMappings="//@ownedViewpoints[name='Proxy']/@ownedRepresentations[name='Proxy_Diagram']/@defaultLayer/@containerMappings[name='Gateway']" iconPath="/org.eclipse.sirius.sample.proxy.design/icons/Gateway.png">
+            <variable name="container"/>
+            <viewVariable name="containerView"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:container">
+                <subModelOperations xsi:type="tool_1:CreateInstance" typeName="proxy::Gateway" referenceName="gateway"/>
+              </firstModelOperations>
+            </initialOperation>
+          </ownedTools>
+          <ownedTools xsi:type="tool:ContainerCreationDescription" name="Coap" containerMappings="//@ownedViewpoints[name='Proxy']/@ownedRepresentations[name='Proxy_Diagram']/@defaultLayer/@containerMappings[name='Coap']" iconPath="/org.eclipse.sirius.sample.proxy.design/icons/Coap.png">
+            <variable name="container"/>
+            <viewVariable name="containerView"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:container">
+                <subModelOperations xsi:type="tool_1:CreateInstance" typeName="proxy::Coap" referenceName="coap"/>
+              </firstModelOperations>
+            </initialOperation>
+          </ownedTools>
+          <ownedTools xsi:type="tool:ContainerCreationDescription" name="Mqtt" containerMappings="//@ownedViewpoints[name='Proxy']/@ownedRepresentations[name='Proxy_Diagram']/@defaultLayer/@containerMappings[name='Mqtt']" iconPath="/org.eclipse.sirius.sample.proxy.design/icons/Mosquitto.png">
+            <variable name="container"/>
+            <viewVariable name="containerView"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:container">
+                <subModelOperations xsi:type="tool_1:CreateInstance" typeName="proxy::Mqtt" referenceName="mqtt"/>
+              </firstModelOperations>
+            </initialOperation>
+          </ownedTools>
+          <ownedTools xsi:type="tool:ContainerCreationDescription" name="ProxyResource" containerMappings="//@ownedViewpoints[name='Proxy']/@ownedRepresentations[name='Proxy_Diagram']/@defaultLayer/@containerMappings[name='Gateway']/@subContainerMappings[name='ProxyResource']" iconPath="/org.eclipse.sirius.sample.proxy.design/icons/Proxy Resource.png">
+            <variable name="container"/>
+            <viewVariable name="containerView"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:container">
+                <subModelOperations xsi:type="tool_1:CreateInstance" typeName="proxy::ProxyResource" referenceName="resources"/>
+              </firstModelOperations>
+            </initialOperation>
+          </ownedTools>
+          <ownedTools xsi:type="tool:ContainerCreationDescription" name="CoapResource" containerMappings="//@ownedViewpoints[name='Proxy']/@ownedRepresentations[name='Proxy_Diagram']/@defaultLayer/@containerMappings[name='Coap']/@subContainerMappings[name='CoapResource']" iconPath="/org.eclipse.sirius.sample.proxy.design/icons/Coap Resource.png">
+            <variable name="container"/>
+            <viewVariable name="containerView"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:container">
+                <subModelOperations xsi:type="tool_1:CreateInstance" typeName="proxy::CoapResource" referenceName="resources"/>
+              </firstModelOperations>
+            </initialOperation>
+          </ownedTools>
+          <ownedTools xsi:type="tool:NodeCreationDescription" name="ProxyReadEndpoint" nodeMappings="//@ownedViewpoints[name='Proxy']/@ownedRepresentations[name='Proxy_Diagram']/@defaultLayer/@containerMappings[name='Gateway']/@subContainerMappings[name='ProxyResource']/@subNodeMappings[name='ProxyReadEndpoint']" iconPath="/org.eclipse.sirius.sample.proxy.design/icons/Read Proxy.png">
+            <variable name="container"/>
+            <viewVariable name="containerView"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:container">
+                <subModelOperations xsi:type="tool_1:CreateInstance" typeName="proxy::ProxyReadEndpoint" referenceName="read"/>
+              </firstModelOperations>
+            </initialOperation>
+          </ownedTools>
+          <ownedTools xsi:type="tool:NodeCreationDescription" name="ProxyWriteEndpoint" nodeMappings="//@ownedViewpoints[name='Proxy']/@ownedRepresentations[name='Proxy_Diagram']/@defaultLayer/@containerMappings[name='Gateway']/@subContainerMappings[name='ProxyResource']/@subNodeMappings[name='ProxyWriteEndpoint']" iconPath="/org.eclipse.sirius.sample.proxy.design/icons/Write Proxy.png">
+            <variable name="container"/>
+            <viewVariable name="containerView"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:container">
+                <subModelOperations xsi:type="tool_1:CreateInstance" typeName="proxy::ProxyWriteEndpoint" referenceName="write"/>
+              </firstModelOperations>
+            </initialOperation>
+          </ownedTools>
+          <ownedTools xsi:type="tool:NodeCreationDescription" name="CoapReadEndpoint" nodeMappings="//@ownedViewpoints[name='Proxy']/@ownedRepresentations[name='Proxy_Diagram']/@defaultLayer/@containerMappings[name='Coap']/@subContainerMappings[name='CoapResource']/@subNodeMappings[name='CoapReadEndpoint']" iconPath="/org.eclipse.sirius.sample.proxy.design/icons/Read Coap.png">
+            <variable name="container"/>
+            <viewVariable name="containerView"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:container">
+                <subModelOperations xsi:type="tool_1:CreateInstance" typeName="proxy::CoapReadEndpoint" referenceName="read"/>
+              </firstModelOperations>
+            </initialOperation>
+          </ownedTools>
+          <ownedTools xsi:type="tool:NodeCreationDescription" name="CoapWriteEndpoint" nodeMappings="//@ownedViewpoints[name='Proxy']/@ownedRepresentations[name='Proxy_Diagram']/@defaultLayer/@containerMappings[name='Coap']/@subContainerMappings[name='CoapResource']/@subNodeMappings[name='CoapWriteEndpoint']" iconPath="/org.eclipse.sirius.sample.proxy.design/icons/Write Coap.png">
+            <variable name="container"/>
+            <viewVariable name="containerView"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:container">
+                <subModelOperations xsi:type="tool_1:CreateInstance" typeName="proxy::CoapWriteEndpoint" referenceName="write"/>
+              </firstModelOperations>
+            </initialOperation>
+          </ownedTools>
+          <ownedTools xsi:type="tool:NodeCreationDescription" name="MqttMessage" nodeMappings="//@ownedViewpoints[name='Proxy']/@ownedRepresentations[name='Proxy_Diagram']/@defaultLayer/@containerMappings[name='Mqtt']/@subNodeMappings[name='MqttMessage']" iconPath="/org.eclipse.sirius.sample.proxy.design/icons/Message.png">
+            <variable name="container"/>
+            <viewVariable name="containerView"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:container">
+                <subModelOperations xsi:type="tool_1:CreateInstance" typeName="proxy::MqttMessage" referenceName="message"/>
+              </firstModelOperations>
+            </initialOperation>
+          </ownedTools>
+        </toolSections>
+      </defaultLayer>
+    </ownedRepresentations>
+    <ownedJavaExtensions qualifiedClassName="org.eclipse.sirius.sample.proxy.design.Services"/>
+  </ownedViewpoints>
+</description:Group>
